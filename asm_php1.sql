@@ -111,7 +111,6 @@ CREATE TABLE `orders` (
 (48, 'Đinh Thị Khánh', '0912345725', 'dinhthikhanh@gmail.com', '987 Đường Tạ Quang Bửu, Quận 8, TP.HCM', 'Để ở cổng chính', '2025-05-10 12:15:50', 0),
 (49, 'Lý Văn Linh', '0912345726', 'lyvanlinh@gmail.com', '159 Đường Dương Bá Trạc, Quận 8, TP.HCM', NULL, '2025-05-10 13:30:15', 0),
 (50, 'Hồ Thị Mỹ', '0912345727', 'hothimy@gmail.com', '753 Đường Bùi Minh Trực, Quận 8, TP.HCM', 'Giao hàng nhanh', '2025-05-10 14:45:40', 0),
-(151, 'abc', 'ada', 'vun334708@gmail.com', 'adsad', 'a', '2025-05-06 06:52:25', 0);
 -- --------------------------------------------------------
 
 --

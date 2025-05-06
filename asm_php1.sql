@@ -60,57 +60,60 @@ CREATE TABLE `orders` (
   `order_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
- ---Đổ dữ liệu cho bảng orders-
- (1, 'Nguyễn Văn An', '0912345678', 'nguyenvanan@gmail.com', '123 Đường Lê Lợi, Quận 1, TP.HCM', 'Giao hàng giờ hành chính', '2025-05-01 09:15:22', 0),
-(2, 'Trần Thị Bình', '0912345679', 'tranthibinh@gmail.com', '456 Đường Nguyễn Huệ, Quận 1, TP.HCM', 'Gọi trước khi giao', '2025-05-01 10:30:45', 0),
-(3, 'Lê Văn Cường', '0912345680', 'levancuong@gmail.com', '789 Đường Hai Bà Trưng, Quận 3, TP.HCM', NULL, '2025-05-01 11:45:10', 0),
-(4, 'Phạm Thị Dung', '0912345681', 'phamthidung@gmail.com', '321 Đường Cách Mạng Tháng 8, Quận 10, TP.HCM', 'Để ở cổng', '2025-05-01 14:20:33', 0),
-(5, 'Hoàng Văn Em', '0912345682', 'hoangvanem@gmail.com', '654 Đường Lý Thường Kiệt, Quận Tân Bình, TP.HCM', 'Giao buổi chiều', '2025-05-02 08:10:15', 0),
-(6, 'Vũ Thị Phương', '0912345683', 'vuthiphuong@gmail.com', '987 Đường 3/2, Quận 10, TP.HCM', NULL, '2025-05-02 09:25:40', 0),
-(7, 'Đặng Văn Giang', '0912345684', 'dangvangiang@gmail.com', '159 Đường Lê Văn Sỹ, Quận Phú Nhuận, TP.HCM', 'Đóng gói cẩn thận', '2025-05-02 10:40:05', 0),
-(8, 'Bùi Thị Hương', '0912345685', 'buithihuong@gmail.com', '753 Đường Nguyễn Đình Chiểu, Quận 3, TP.HCM', 'Giao cuối tuần', '2025-05-02 13:55:30', 0),
-(9, 'Đỗ Văn Ích', '0912345686', 'dovanich@gmail.com', '852 Đường Võ Văn Tần, Quận 3, TP.HCM', NULL, '2025-05-03 07:30:45', 0),
-(10, 'Ngô Thị Kim', '0912345687', 'ngothikim@gmail.com', '456 Đường Trần Hưng Đạo, Quận 5, TP.HCM', 'Giao trước 17h', '2025-05-03 08:45:10', 0),
-(11, 'Hồ Văn Long', '0912345688', 'hovanlong@gmail.com', '258 Đường Nguyễn Trãi, Quận 5, TP.HCM', NULL, '2025-05-03 10:00:35', 0),
-(12, 'Lý Thị Mai', '0912345689', 'lythimai@gmail.com', '369 Đường Hùng Vương, Quận 5, TP.HCM', 'Để lại nhà bảo vệ', '2025-05-03 11:15:50', 0),
-(13, 'Trương Văn Nam', '0912345690', 'truongvannam@gmail.com', '147 Đường Ngô Quyền, Quận 10, TP.HCM', NULL, '2025-05-03 14:30:15', 0),
-(14, 'Đinh Thị Oanh', '0912345691', 'dinhthioanh@gmail.com', '258 Đường Lý Chính Thắng, Quận 3, TP.HCM', 'Gọi điện xác nhận', '2025-05-04 09:45:40', 0),
-(15, 'Mai Văn Phúc', '0912345692', 'maivanphuc@gmail.com', '369 Đường Bà Hạt, Quận 10, TP.HCM', NULL, '2025-05-04 11:00:05', 0),
-(16, 'Võ Thị Quỳnh', '0912345693', 'vothiquynh@gmail.com', '159 Đường Lê Hồng Phong, Quận 10, TP.HCM', 'Giao hàng nhanh', '2025-05-04 12:15:30', 0),
-(17, 'Chu Văn Rạng', '0912345694', 'chuvanrang@gmail.com', '753 Đường Nguyễn Tri Phương, Quận 10, TP.HCM', NULL, '2025-05-04 13:30:55', 0),
-(18, 'Phan Thị Sương', '0912345695', 'phanthisuong@gmail.com', '852 Đường Thành Thái, Quận 10, TP.HCM', 'Kiểm tra hàng trước khi nhận', '2025-05-04 14:45:20', 0),
-(19, 'Trịnh Văn Tú', '0912345696', 'trinhvantu@gmail.com', '456 Đường Bắc Hải, Quận Tân Bình, TP.HCM', NULL, '2025-05-05 08:00:45', 0),
-(20, 'Đoàn Thị Uyên', '0912345697', 'doanthiuyen@gmail.com', '789 Đường Hoàng Văn Thụ, Quận Tân Bình, TP.HCM', 'Giao trước 12h trưa', '2025-05-05 09:15:10', 0),
-(21, 'Lương Văn Vinh', '0912345698', 'luongvanvinh@gmail.com', '123 Đường Phạm Văn Hai, Quận Tân Bình, TP.HCM', NULL, '2025-05-05 10:30:35', 0),
-(22, 'Kiều Thị Xuân', '0912345699', 'kieuthixuan@gmail.com', '456 Đường Cộng Hòa, Quận Tân Bình, TP.HCM', 'Để ở thang máy', '2025-05-05 11:45:00', 0),
-(23, 'Tạ Văn Yên', '0912345700', 'tavanyen@gmail.com', '789 Đường Trường Chinh, Quận Tân Bình, TP.HCM', NULL, '2025-05-05 13:00:25', 0),
-(24, 'Hà Thị Ánh', '0912345701', 'hathianh@gmail.com', '321 Đường Lê Văn Duyệt, Quận Bình Thạnh, TP.HCM', 'Giao buổi tối', '2025-05-06 08:15:50', 0),
-(25, 'Lâm Văn Bảo', '0912345702', 'lamvanbao@gmail.com', '654 Đường Xô Viết Nghệ Tĩnh, Quận Bình Thạnh, TP.HCM', NULL, '2025-05-06 09:30:15', 0),
-(26, 'Thái Thị Chi', '0912345703', 'thaithichi@gmail.com', '987 Đường Điện Biên Phủ, Quận Bình Thạnh, TP.HCM', 'Giao cuối tuần', '2025-05-06 10:45:40', 0),
-(27, 'Sơn Văn Đạt', '0912345704', 'sonvandat@gmail.com', '159 Đường Nơ Trang Long, Quận Bình Thạnh, TP.HCM', NULL, '2025-05-06 12:00:05', 0),
-(28, 'Lưu Thị Hạnh', '0912345705', 'luuthihanh@gmail.com', '753 Đường Bạch Đằng, Quận Bình Thạnh, TP.HCM', 'Gọi trước 30 phút', '2025-05-06 13:15:30', 0),
-(29, 'Dương Văn Khoa', '0912345706', 'duongvankhoa@gmail.com', '852 Đường Ung Văn Khiêm, Quận Bình Thạnh, TP.HCM', NULL, '2025-05-06 14:30:55', 0),
-(30, 'Quách Thị Lan', '0912345707', 'quachthilan@gmail.com', '456 Đường Phan Đăng Lưu, Quận Phú Nhuận, TP.HCM', 'Giao hàng tiết kiệm', '2025-05-07 08:45:20', 0),
-(31, 'Bạch Văn Minh', '0912345708', 'bachvanminh@gmail.com', '789 Đường Hoàng Minh Giám, Quận Phú Nhuận, TP.HCM', NULL, '2025-05-07 10:00:45', 0),
-(32, 'Vương Thị Nga', '0912345709', 'vuongthinga@gmail.com', '123 Đường Phan Xích Long, Quận Phú Nhuận, TP.HCM', 'Để ở cửa hàng tiện lợi', '2025-05-07 11:15:10', 0),
-(33, 'Tô Văn Phong', '0912345710', 'tovanphong@gmail.com', '456 Đường Trần Kế Xương, Quận Phú Nhuận, TP.HCM', NULL, '2025-05-07 12:30:35', 0),
-(34, 'Lã Thị Quyên', '0912345711', 'lathiquyen@gmail.com', '789 Đường Nguyễn Văn Trỗi, Quận Phú Nhuận, TP.HCM', 'Giao hàng nhanh', '2025-05-07 13:45:00', 0),
-(35, 'Triệu Văn Sang', '0912345712', 'trieuvansang@gmail.com', '321 Đường Lê Quang Định, Quận Gò Vấp, TP.HCM', NULL, '2025-05-08 09:00:25', 0),
-(36, 'Hứa Thị Thanh', '0912345713', 'huathithanh@gmail.com', '654 Đường Quang Trung, Quận Gò Vấp, TP.HCM', 'Giao trước 18h', '2025-05-08 10:15:50', 0),
-(37, 'Phùng Văn Tuấn', '0912345714', 'phungvantuan@gmail.com', '987 Đường Lê Đức Thọ, Quận Gò Vấp, TP.HCM', NULL, '2025-05-08 11:30:15', 0),
-(38, 'Hồng Thị Uyển', '0912345715', 'hongthiuyen@gmail.com', '159 Đường Nguyễn Oanh, Quận Gò Vấp, TP.HCM', 'Kiểm tra hàng trước khi nhận', '2025-05-08 12:45:40', 0),
-(39, 'Đỗ Văn Vũ', '0912345716', 'dovanvu@gmail.com', '753 Đường Phạm Văn Đồng, Quận Thủ Đức, TP.HCM', NULL, '2025-05-08 14:00:05', 0),
-(40, 'Lê Thị Xuân', '0912345717', 'lethixuan@gmail.com', '852 Đường Kha Vạn Cân, Quận Thủ Đức, TP.HCM', 'Giao hàng tiết kiệm', '2025-05-09 08:15:30', 0),
-(41, 'Nguyễn Văn Anh', '0912345718', 'nguyenvananh@gmail.com', '456 Đường Võ Văn Ngân, Quận Thủ Đức, TP.HCM', NULL, '2025-05-09 09:30:55', 0),
-(42, 'Trần Thị Bích', '0912345719', 'tranthibich@gmail.com', '789 Đường Linh Đông, Quận Thủ Đức, TP.HCM', 'Giao buổi sáng', '2025-05-09 10:45:20', 0),
-(43, 'Phạm Văn Cảnh', '0912345720', 'phamvancanh@gmail.com', '123 Đường Lê Văn Việt, Quận 9, TP.HCM', NULL, '2025-05-09 12:00:45', 0),
-(44, 'Hoàng Thị Duyên', '0912345721', 'hoangthiduyen@gmail.com', '456 Đường Đỗ Xuân Hợp, Quận 9, TP.HCM', 'Giao cuối tuần', '2025-05-09 13:15:10', 0),
-(45, 'Vũ Văn Đức', '0912345722', 'vuvanduc@gmail.com', '789 Đường Nguyễn Xiển, Quận 9, TP.HCM', NULL, '2025-05-10 08:30:35', 0),
-(46, 'Đặng Thị Hà', '0912345723', 'dangthiha@gmail.com', '321 Đường Lã Xuân Oai, Quận 9, TP.HCM', 'Gọi trước khi giao', '2025-05-10 09:45:00', 0),
-(47, 'Bùi Văn Hiếu', '0912345724', 'buivanhieu@gmail.com', '654 Đường Tân Lập, Quận 9, TP.HCM', NULL, '2025-05-10 11:00:25', 0),
-(48, 'Đinh Thị Khánh', '0912345725', 'dinhthikhanh@gmail.com', '987 Đường Tạ Quang Bửu, Quận 8, TP.HCM', 'Để ở cổng chính', '2025-05-10 12:15:50', 0),
-(49, 'Lý Văn Linh', '0912345726', 'lyvanlinh@gmail.com', '159 Đường Dương Bá Trạc, Quận 8, TP.HCM', NULL, '2025-05-10 13:30:15', 0),
-(50, 'Hồ Thị Mỹ', '0912345727', 'hothimy@gmail.com', '753 Đường Bùi Minh Trực, Quận 8, TP.HCM', 'Giao hàng nhanh', '2025-05-10 14:45:40', 0),
+
+INSERT IGNORE INTO  `orders` (`id`, `fullname`, `phone_number`, `email`, `address`, `note`, `order_date`) VALUES
+(1, 'Nguyễn Văn An', '0912345678', 'nguyenvanan@gmail.com', '123 Đường Lê Lợi, Quận 1, TP.HCM', 'Giao hàng giờ hành chính', '2025-05-01 09:15:22'),
+(2, 'Trần Thị Bình', '0912345679', 'tranthibinh@gmail.com', '456 Đường Nguyễn Huệ, Quận 1, TP.HCM', 'Gọi trước khi giao', '2025-05-01 10:30:45'),
+(3, 'Lê Văn Cường', '0912345680', 'levancuong@gmail.com', '789 Đường Hai Bà Trưng, Quận 3, TP.HCM', NULL, '2025-05-01 11:45:10'),
+(4, 'Phạm Thị Dung', '0912345681', 'phamthidung@gmail.com', '321 Đường Cách Mạng Tháng 8, Quận 10, TP.HCM', 'Để ở cổng', '2025-05-01 14:20:33'),
+(5, 'Hoàng Văn Em', '0912345682', 'hoangvanem@gmail.com', '654 Đường Lý Thường Kiệt, Quận Tân Bình, TP.HCM', 'Giao buổi chiều', '2025-05-02 08:10:15'),
+(6, 'Vũ Thị Phương', '0912345683', 'vuthiphuong@gmail.com', '987 Đường 3/2, Quận 10, TP.HCM', NULL, '2025-05-02 09:25:40'),
+(7, 'Đặng Văn Giang', '0912345684', 'dangvangiang@gmail.com', '159 Đường Lê Văn Sỹ, Quận Phú Nhuận, TP.HCM', 'Đóng gói cẩn thận', '2025-05-02 10:40:05'),
+(8, 'Bùi Thị Hương', '0912345685', 'buithihuong@gmail.com', '753 Đường Nguyễn Đình Chiểu, Quận 3, TP.HCM', 'Giao cuối tuần', '2025-05-02 13:55:30'),
+(9, 'Đỗ Văn Ích', '0912345686', 'dovanich@gmail.com', '852 Đường Võ Văn Tần, Quận 3, TP.HCM', NULL, '2025-05-03 07:30:45'),
+(10, 'Ngô Thị Kim', '0912345687', 'ngothikim@gmail.com', '456 Đường Trần Hưng Đạo, Quận 5, TP.HCM', 'Giao trước 17h', '2025-05-03 08:45:10'),
+(11, 'Hồ Văn Long', '0912345688', 'hovanlong@gmail.com', '258 Đường Nguyễn Trãi, Quận 5, TP.HCM', NULL, '2025-05-03 10:00:35'),
+(12, 'Lý Thị Mai', '0912345689', 'lythimai@gmail.com', '369 Đường Hùng Vương, Quận 5, TP.HCM', 'Để lại nhà bảo vệ', '2025-05-03 11:15:50'),
+(13, 'Trương Văn Nam', '0912345690', 'truongvannam@gmail.com', '147 Đường Ngô Quyền, Quận 10, TP.HCM', NULL, '2025-05-03 14:30:15'),
+(14, 'Đinh Thị Oanh', '0912345691', 'dinhthioanh@gmail.com', '258 Đường Lý Chính Thắng, Quận 3, TP.HCM', 'Gọi điện xác nhận', '2025-05-04 09:45:40'),
+(15, 'Mai Văn Phúc', '0912345692', 'maivanphuc@gmail.com', '369 Đường Bà Hạt, Quận 10, TP.HCM', NULL, '2025-05-04 11:00:05'),
+(16, 'Võ Thị Quỳnh', '0912345693', 'vothiquynh@gmail.com', '159 Đường Lê Hồng Phong, Quận 10, TP.HCM', 'Giao hàng nhanh', '2025-05-04 12:15:30'),
+(17, 'Chu Văn Rạng', '0912345694', 'chuvanrang@gmail.com', '753 Đường Nguyễn Tri Phương, Quận 10, TP.HCM', NULL, '2025-05-04 13:30:55'),
+(18, 'Phan Thị Sương', '0912345695', 'phanthisuong@gmail.com', '852 Đường Thành Thái, Quận 10, TP.HCM', 'Kiểm tra hàng trước khi nhận', '2025-05-04 14:45:20'),
+(19, 'Trịnh Văn Tú', '0912345696', 'trinhvantu@gmail.com', '456 Đường Bắc Hải, Quận Tân Bình, TP.HCM', NULL, '2025-05-05 08:00:45'),
+(20, 'Đoàn Thị Uyên', '0912345697', 'doanthiuyen@gmail.com', '789 Đường Hoàng Văn Thụ, Quận Tân Bình, TP.HCM', 'Giao trước 12h trưa', '2025-05-05 09:15:10'),
+(21, 'Lương Văn Vinh', '0912345698', 'luongvanvinh@gmail.com', '123 Đường Phạm Văn Hai, Quận Tân Bình, TP.HCM', NULL, '2025-05-05 10:30:35'),
+(22, 'Kiều Thị Xuân', '0912345699', 'kieuthixuan@gmail.com', '456 Đường Cộng Hòa, Quận Tân Bình, TP.HCM', 'Để ở thang máy', '2025-05-05 11:45:00'),
+(23, 'Tạ Văn Yên', '0912345700', 'tavanyen@gmail.com', '789 Đường Trường Chinh, Quận Tân Bình, TP.HCM', NULL, '2025-05-05 13:00:25'),
+(24, 'Hà Thị Ánh', '0912345701', 'hathianh@gmail.com', '321 Đường Lê Văn Duyệt, Quận Bình Thạnh, TP.HCM', 'Giao buổi tối', '2025-05-06 08:15:50'),
+(25, 'Lâm Văn Bảo', '0912345702', 'lamvanbao@gmail.com', '654 Đường Xô Viết Nghệ Tĩnh, Quận Bình Thạnh, TP.HCM', NULL, '2025-05-06 09:30:15'),
+(26, 'Thái Thị Chi', '0912345703', 'thaithichi@gmail.com', '987 Đường Điện Biên Phủ, Quận Bình Thạnh, TP.HCM', 'Giao cuối tuần', '2025-05-06 10:45:40'),
+(27, 'Sơn Văn Đạt', '0912345704', 'sonvandat@gmail.com', '159 Đường Nơ Trang Long, Quận Bình Thạnh, TP.HCM', NULL, '2025-05-06 12:00:05'),
+(28, 'Lưu Thị Hạnh', '0912345705', 'luuthihanh@gmail.com', '753 Đường Bạch Đằng, Quận Bình Thạnh, TP.HCM', 'Gọi trước 30 phút', '2025-05-06 13:15:30'),
+(29, 'Dương Văn Khoa', '0912345706', 'duongvankhoa@gmail.com', '852 Đường Ung Văn Khiêm, Quận Bình Thạnh, TP.HCM', NULL, '2025-05-06 14:30:55'),
+(30, 'Quách Thị Lan', '0912345707', 'quachthilan@gmail.com', '456 Đường Phan Đăng Lưu, Quận Phú Nhuận, TP.HCM', 'Giao hàng tiết kiệm', '2025-05-07 08:45:20'),
+(31, 'Bạch Văn Minh', '0912345708', 'bachvanminh@gmail.com', '789 Đường Hoàng Minh Giám, Quận Phú Nhuận, TP.HCM', NULL, '2025-05-07 10:00:45'),
+(32, 'Vương Thị Nga', '0912345709', 'vuongthinga@gmail.com', '123 Đường Phan Xích Long, Quận Phú Nhuận, TP.HCM', 'Để ở cửa hàng tiện lợi', '2025-05-07 11:15:10'),
+(33, 'Tô Văn Phong', '0912345710', 'tovanphong@gmail.com', '456 Đường Trần Kế Xương, Quận Phú Nhuận, TP.HCM', NULL, '2025-05-07 12:30:35'),
+(34, 'Lã Thị Quyên', '0912345711', 'lathiquyen@gmail.com', '789 Đường Nguyễn Văn Trỗi, Quận Phú Nhuận, TP.HCM', 'Giao hàng nhanh', '2025-05-07 13:45:00'),
+(35, 'Triệu Văn Sang', '0912345712', 'trieuvansang@gmail.com', '321 Đường Lê Quang Định, Quận Gò Vấp, TP.HCM', NULL, '2025-05-08 09:00:25'),
+(36, 'Hứa Thị Thanh', '0912345713', 'huathithanh@gmail.com', '654 Đường Quang Trung, Quận Gò Vấp, TP.HCM', 'Giao trước 18h', '2025-05-08 10:15:50'),
+(37, 'Phùng Văn Tuấn', '0912345714', 'phungvantuan@gmail.com', '987 Đường Lê Đức Thọ, Quận Gò Vấp, TP.HCM', NULL, '2025-05-08 11:30:15'),
+(38, 'Hồng Thị Uyển', '0912345715', 'hongthiuyen@gmail.com', '159 Đường Nguyễn Oanh, Quận Gò Vấp, TP.HCM', 'Kiểm tra hàng trước khi nhận', '2025-05-08 12:45:40'),
+(39, 'Đỗ Văn Vũ', '0912345716', 'dovanvu@gmail.com', '753 Đường Phạm Văn Đồng, Quận Thủ Đức, TP.HCM', NULL, '2025-05-08 14:00:05'),
+(40, 'Lê Thị Xuân', '0912345717', 'lethixuan@gmail.com', '852 Đường Kha Vạn Cân, Quận Thủ Đức, TP.HCM', 'Giao hàng tiết kiệm', '2025-05-09 08:15:30'),
+(41, 'Nguyễn Văn Anh', '0912345718', 'nguyenvananh@gmail.com', '456 Đường Võ Văn Ngân, Quận Thủ Đức, TP.HCM', NULL, '2025-05-09 09:30:55'),
+(42, 'Trần Thị Bích', '0912345719', 'tranthibich@gmail.com', '789 Đường Linh Đông, Quận Thủ Đức, TP.HCM', 'Giao buổi sáng', '2025-05-09 10:45:20'),
+(43, 'Phạm Văn Cảnh', '0912345720', 'phamvancanh@gmail.com', '123 Đường Lê Văn Việt, Quận 9, TP.HCM', NULL, '2025-05-09 12:00:45'),
+(44, 'Hoàng Thị Duyên', '0912345721', 'hoangthiduyen@gmail.com', '456 Đường Đỗ Xuân Hợp, Quận 9, TP.HCM', 'Giao cuối tuần', '2025-05-09 13:15:10'),
+(45, 'Vũ Văn Đức', '0912345722', 'vuvanduc@gmail.com', '789 Đường Nguyễn Xiển, Quận 9, TP.HCM', NULL, '2025-05-10 08:30:35'),
+(46, 'Đặng Thị Hà', '0912345723', 'dangthiha@gmail.com', '321 Đường Lã Xuân Oai, Quận 9, TP.HCM', 'Gọi trước khi giao', '2025-05-10 09:45:00'),
+(47, 'Bùi Văn Hiếu', '0912345724', 'buivanhieu@gmail.com', '654 Đường Tân Lập, Quận 9, TP.HCM', NULL, '2025-05-10 11:00:25'),
+(48, 'Đinh Thị Khánh', '0912345725', 'dinhthikhanh@gmail.com', '987 Đường Tạ Quang Bửu, Quận 8, TP.HCM', 'Để ở cổng chính', '2025-05-10 12:15:50'),
+(49, 'Lý Văn Linh', '0912345726', 'lyvanlinh@gmail.com', '159 Đường Dương Bá Trạc, Quận 8, TP.HCM', NULL, '2025-05-10 13:30:15'),
+(50, 'Hồ Thị Mỹ', '0912345727', 'hothimy@gmail.com', '753 Đường Bùi Minh Trực, Quận 8, TP.HCM', 'Giao hàng nhanh', '2025-05-10 14:45:40'),
+(151, 'abc', 'ada', 'vun334708@gmail.com', 'adsad', 'a', '2025-05-06 06:52:25');
+
 -- --------------------------------------------------------
 
 --
@@ -126,7 +129,6 @@ CREATE TABLE `order_details` (
   `price` float NOT NULL,
   `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
 -- Đang đổ dữ liệu cho bảng `order_details`
 --
@@ -210,8 +212,6 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `id_user`, `num`, `
 (100, 49, 10, 49, 1, 210000, 'Đang giao'),
 (102, 50, 12, 50, 1, 300000, 'Đã nhận hàng'),
 (103, 50, 13, 50, 1, 114000, 'Đã nhận hàng');
-
-
 -- --------------------------------------------------------
 
 --
@@ -477,25 +477,26 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

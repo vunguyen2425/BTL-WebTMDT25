@@ -15,6 +15,10 @@ require_once('database/dbhelper.php');
                     <input name="search" type="text" placeholder="Tìm sản phẩm">
                 </form>
             </section>
+
+            <!-- Tích hợp slideshow tại đây -->
+            <?php include 'slideshow/slideshow.php'; ?>
+            
             <section class="main-layout">
                 <div class="row">
                     <?php
@@ -31,7 +35,7 @@ require_once('database/dbhelper.php');
                                             text-shadow: 2px 2px 0px gray, 2px 2px 0px gray;
                                             ">'. $item['name'] .'</p>
                                             <div class="bg"></div>
-                                            <img src="images/bg/face.png" alt="">
+                                            <img src="images/bg/face.jpg" alt="">
                                         </a>
                                     </div>
                                     ';

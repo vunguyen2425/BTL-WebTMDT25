@@ -118,7 +118,16 @@ if (!isset($_COOKIE['username'])) {
                                     </tbody>
                                 </table>
                                 <p>Tổng đơn hàng: <span class="bold red"><?= number_format($total, 0, ',', '.') ?><span> VNĐ</span></span></p>
+                                <div>
+                                    <label for="typepay1">thanh toán khi nhân hàng</label>
+                                    <input id = "typepay1" type="radio" name="typepay" value="cash" > 
+                                </div>
+                                <div>
+                                    <label for="typepay2">chuyển khoản</label>
+                                    <input id = "typepay2" type="radio" name="typepay" value="banking" >
+                                </div>
                                 <button type="submit" class="btn btn-success">Đặt hàng</button>
+                                
                             </div>
                         </div>
                     </div>

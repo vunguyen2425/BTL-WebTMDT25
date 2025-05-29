@@ -39,6 +39,7 @@ if (!isset($_COOKIE['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,6 +52,7 @@ if (!isset($_COOKIE['username'])) {
     <link rel="stylesheet" href="css/cart.css">
     <title>Thanh toán</title>
 </head>
+
 <body>
     <div id="wrapper">
         <?php require_once('layout/header.php'); ?>
@@ -118,16 +120,15 @@ if (!isset($_COOKIE['username'])) {
                                     </tbody>
                                 </table>
                                 <p>Tổng đơn hàng: <span class="bold red"><?= number_format($total, 0, ',', '.') ?><span> VNĐ</span></span></p>
-                                <div>
-                                    <label for="typepay1">thanh toán khi nhân hàng</label>
-                                    <input id = "typepay1" type="radio" name="typepay" value="cash" > 
+                                <div class="pay-option">
+                                    <input id="typepay1" type="radio" name="typepay" value="cash">
+                                    <label for="typepay1"><i class="fas fa-money-bill-wave"></i> Thanh Toán Khi Nhận Hàng</label>
                                 </div>
-                                <div>
-                                    <label for="typepay2">chuyển khoản</label>
-                                    <input id = "typepay2" type="radio" name="typepay" value="banking" >
+                                <div class="pay-option">
+                                    <input id="typepay2" type="radio" name="typepay" value="banking">
+                                    <label for="typepay2"><i class="fas fa-university"></i> Chuyển Khoản</label>
                                 </div>
                                 <button type="submit" class="btn btn-success">Đặt hàng</button>
-                                
                             </div>
                         </div>
                     </div>
@@ -143,14 +144,46 @@ if (!isset($_COOKIE['username'])) {
         font-weight: 500;
         color: blue;
     }
+
     .b-500 {
         font-weight: 500;
     }
+
     .bold {
         font-weight: bold;
     }
+
     .red {
         color: rgba(207, 16, 16, 0.815);
     }
+
+    .pay-option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .pay-option input[type="radio"] {
+        margin-right: 10px;
+        accent-color: #28a745;
+        /* màu xanh của Bootstrap */
+        width: 18px;
+        height: 18px;
+    }
+
+    .pay-option label {
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .pay-option i {
+        margin-right: 8px;
+        color: #28a745;
+        font-size: 20px;
+    }
 </style>
+
 </html>

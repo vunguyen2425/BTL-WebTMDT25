@@ -134,6 +134,79 @@ require_once('../database/dbhelper.php');
       $repass = $_POST['repassword'];
       $phone = $_POST['phone'];
       $email = $_POST['email'];
+
+      $name = $_POST['name'];
+      $username = $_POST['username'];
+      // ...
+
+      // Họ và tên không chứa ký tự đặc biệt
+      if (!preg_match('/^[\p{L}\s]+$/u', $name)) {
+        echo '<script>alert("Họ và tên chỉ được chứa chữ cái và khoảng trắng!"); window.location = "reg.php";</script>';
+        die();
+      }
+
+      // Tài khoản phải chứa cả chữ và số, không ký tự đặc biệt
+      if (!preg_match('/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/', $username)) {
+        echo '<script>alert("Tài khoản phải chứa cả chữ và số, không có ký tự đặc biệt!"); window.location = "reg.php";</script>';
+        die();
+      }
+
+      // Kiểm tra username không có ký tự đặc biệt
+      if (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+        echo '<script>alert("Tài khoản chỉ được chứa chữ, số và dấu gạch dưới!"); window.location = "reg.php";</script>';
+        die();
+      }
+
+      // Kiểm tra định dạng email
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo '<script>alert("Email không đúng định dạng!"); window.location = "reg.php";</script>';
+        die();
+      }
+
+      // Kiểm tra định dạng số điện thoại
+      if (!preg_match('/^[0-9]{10,11}$/', $phone)) {
+        echo '<script>alert("Số điện thoại không đúng định dạng!"); window.location = "reg.php";</script>';
+        die();
+      }
+
+      // Kiểm tra trùng password
+      if ($pass != $repass) {
+        echo '<script language="javascript">
+                        alert("Nhập không trùng mật khẩu, vui lòng đăng ký lại!");
+                        window.location = "reg.php";
+                  </script>';
+        die();
+      }
+      // Kiểm tra username hoặc email đã tồn tại
+      $sql = "SELECT * FROM user where username = '$username' OR email='$email'";
+      $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
+        echo '<script language="javascript">
+                     alert("Tài khoản hoặc Email đã được sử dụng!");
+                     window.location = "reg.php";
+                 </script>';
+        die();
+      }
+      $sql = 'INSERT INTO user(hoten,username,password,phone,email) values ("' . $name . '","' . $username . '","' . $pass . '","' . $phone . '","' . $email . '")';
+      execute($sql);
+      echo '<script language="javascript">
+                    alert("Bạn đăng ký thành công!");
+                    window.location = "login.php";
+                 </script>';
+    } else {
+      echo '<script language="javascript">
+        alert("hãy nhập đủ thông tin!");
+        window.location = "reg.php";
+        </script>';
+    }
+    if (isset($_POST['submit']) && $_POST['name'] != "" && $_POST['username'] != "" && $_POST['password'] != "" && $_POST['phone'] != "" && $_POST['email'] != "") {
+      $name = $_POST['name'];
+      $username = $_POST['username'];
+      $pass = $_POST['password'];
+      $repass = $_POST['repassword'];
+      $phone = $_POST['phone'];
+      $email = $_POST['email'];
       //kiểm tra trùng paswword không
       if ($pass != $repass) {
         echo '<script language="javascript">

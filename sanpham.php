@@ -60,16 +60,7 @@
                                         <div class="price">
                                             <span>' . number_format($item['price'], 0, ',', '.') . ' VNĐ</span>
                                         </div>
-                                        <div class="more">
-                                            <div class="star">
-                                                <img src="images/icon/icon-star.svg" alt="">
-                                                <span>4.6</span>
-                                            </div>
-                                            <div class="time">
-                                                <img src="images/icon/icon-clock.svg" alt="">
-                                                <span>15 comment</span>
-                                            </div>
-                                        </div>
+                                        
                                     </a>
                                 </div>
                                 ';
@@ -91,16 +82,7 @@
                                         <div class="price">
                                             <span>' . number_format($item['price'], 0, ',', '.') . ' VNĐ</span>
                                         </div>
-                                        <div class="more">
-                                            <div class="star">
-                                                <img src="images/icon/icon-star.svg" alt="">
-                                                <span>4.6</span>
-                                            </div>
-                                            <div class="time">
-                                                <img src="images/icon/icon-clock.svg" alt="">
-                                                <span>15 comment</span>
-                                            </div>
-                                        </div>
+                                        
                                     </a>
                                 </div>
                                 ';

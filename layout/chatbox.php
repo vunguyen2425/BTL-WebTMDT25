@@ -73,10 +73,10 @@
 
   <!-- Khung xổ ra khi click -->
   <div class="contact-options" id="contacts">
-    <a href="https://m.me/yourpage" target="_blank" class="contact-item">
+    <a href="https://www.facebook.com/CellphoneSVietnam/?locale=vi_VN" target="_blank" class="contact-item">
       <i class="fab fa-facebook-messenger"></i> Messenger
     </a>
-    <a href="https://zalo.me/yourzalo" target="_blank" class="contact-item">
+    <a href="https://zalo.me/2709729516030357642" target="_blank" class="contact-item">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo"> Zalo Chat
     </a>
     <a href="tel:0815208208" class="contact-item">

@@ -27,6 +27,23 @@ function executeResult($sql)
 	mysqli_close($con);
 	return $data;
 }
+function insertAndGetId($sql) {
+    // Biến $conn phải được khai báo global để dùng trong hàm
+    	$con = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
+
+    // Thực hiện truy vấn
+    $result = mysqli_query($con, $sql);
+
+    // Kiểm tra lỗi
+    if ($result === false) {
+        die("Lỗi thực thi SQL: " . mysqli_error($con));
+    }
+
+    // Lấy ID của bản ghi vừa thêm
+    $last_id = mysqli_insert_id($con);
+
+    return $last_id;
+}
 
 function executeSingleResult($sql)
 {

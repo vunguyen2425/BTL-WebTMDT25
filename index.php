@@ -35,7 +35,7 @@ require_once('database/dbhelper.php');
                                             text-shadow: 2px 2px 0px gray, 2px 2px 0px gray;
                                             ">'. $item['name'] .'</p>
                                             <div class="bg"></div>
-                                            <img src="images/bg/face.jpg" alt="">
+                                            <img src="images/bg/hair.jpg" alt="">
                                         </a>
                                     </div>
                                     ';
@@ -71,16 +71,7 @@ require_once('database/dbhelper.php');
                                         <div class="price">
                                             <span>' . number_format($item['price'], 0, ',', '.') . ' VNĐ</span>
                                         </div>
-                                        <div class="more">
-                                            <div class="star">
-                                                <img src="images/icon/icon-star.svg" alt="">
-                                                <span>4.6</span>
-                                            </div>
-                                            <div class="time">
-                                                <img src="images/icon/icon-clock.svg" alt="">
-                                                <span> 10 comment</span>
-                                            </div>
-                                        </div>
+                                        
                                     </a>
                                 </div>
                                 ';
@@ -123,16 +114,7 @@ require_once('database/dbhelper.php');
                                         <div class="price">
                                             <span>' . number_format($item['price'], 0, ',', '.') . ' VNĐ</span>
                                         </div>
-                                        <div class="more">
-                                            <div class="star">
-                                                <img src="images/icon/icon-star.svg" alt="">
-                                                <span>4.6</span>
-                                            </div>
-                                            <div class="time">
-                                                <img src="images/icon/icon-clock.svg" alt="">
-                                                <span>15 comment</span>
-                                            </div>
-                                        </div>
+                                        
                                     </a>
                                 </div>
                                 ';

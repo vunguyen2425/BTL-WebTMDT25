@@ -57,7 +57,10 @@ require_once('utils/utility.php');
                                     <td>Giá</td>
                                     <td>Số lượng</td>
                                     <td>Tổng cộng</td>
-                                    <td>Trạng thái</td>
+                                    <td>Trạng thái giao hàng</td>
+                                    <td>Kiểu thanh toán</td>
+                                    <td>Trạng thái thanh toán</td>
+                                
                                     <!-- <td width="50px"></td> -->
                                 </tr>
                             </thead>
@@ -77,6 +80,9 @@ require_once('utils/utility.php');
                                     $order_details_List = executeResult($sql);
                                     $total = 0;
                                     $count = 0;
+
+                                    $sql  = "SELECT * from orders where id_user = '$userId' ORDER BY order_date DESC";
+
                                     // $sql = 'SELECT * FROM user where username = $username';
                                     foreach ($order_details_List as $item) {
                                         echo '
@@ -90,6 +96,9 @@ require_once('utils/utility.php');
                                             <td width="100px">' . $item['num'] . '</td>
                                             <td class="b-500 red">' . number_format($item['num'] * $item['price'], 0, ',', '.') . '<span> VNĐ</span></td>
                                             <td style="color:green; font-weight:600;">' . $item['status'] . '</td>
+                                            <td style="color:green; font-weight:600;">' . $item['typepay'] . '</td>
+                                            <td style="color:green; font-weight:600;">' . ($item['paymentStatus'] == 0 ? 'Chưa thanh toán':'Đã thanh toán') . '</td>
+
                                         </tr>
                                         ';
                                     }

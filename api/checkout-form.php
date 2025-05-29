@@ -7,7 +7,7 @@ if (!empty($_POST)) {
         $json = $_COOKIE['cart'];
         $cart = json_decode($json, true);
     }
-    var_dump($cart);
+
     if ($cart == null || count($cart) == 0) {
         header('Location: index.php');
         die();
@@ -21,10 +21,9 @@ if (!empty($_POST)) {
     $pay = $_POST['typepay'];
     if ($pay == "cash") {
 
-        $sql = "INSERT INTO orders(fullname,email, phone_number,address, note, order_date) 
-    values ('$fullname','$email','$phone_number','$address','$note','$orderDate')";
-        execute($sql);
-
+        $sql = "INSERT INTO orders(fullname,email, phone_number,address, note, order_date,typepay, paymentStatus) 
+    values ('$fullname','$email','$phone_number','$address','$note','$orderDate','cash', 0)";
+        $resultId = insertAndGetId($sql);
         $sql = "SELECT * FROM orders WHERE order_date = '$orderDate'";
         $order = executeResult($sql); // in ra 1 dòng 
         foreach ($order as $item) {
@@ -39,8 +38,6 @@ if (!empty($_POST)) {
                 $userId = $item['id_user'];
             }
         }
-
-
 
         // lấy cartList ra
         $idList = [];
@@ -66,7 +63,7 @@ if (!empty($_POST)) {
                     break;
                 }
             }
-            $sql = "INSERT into order_details(order_id, product_id,id_user, num, price,status) values ('$orderId', " . $item['id'] . ",'$userId','$num', " . $item['price'] . ",'$status')";
+            $sql = "INSERT into order_details(order_id, product_id, id_user, num, price, status, typepay, paymentStatus) values ('$orderId', " . $item['id'] . ",'$userId','$num', " . $item['price'] . ",'Đang chuẩn bị','cash', 0)";
             execute($sql);
             echo '<script language="javascript">
                 alert("Đặt hàng thành công!"); 
@@ -77,10 +74,84 @@ if (!empty($_POST)) {
     }    // thêm vào order 
     else if ($pay == "banking") {
 
+        // 1. Tạo đơn hàng trước (giống phần cash)
+        $sql = "INSERT INTO orders(fullname,email, phone_number,address, note, order_date,typepay, paymentStatus) 
+    values ('$fullname','$email','$phone_number','$address','$note','$orderDate','banking', 0)";
+        $resultId = insertAndGetId($sql);
+        $sql = "SELECT * FROM orders WHERE order_date = '$orderDate'";
+        $order = executeResult($sql);
+        foreach ($order as $item) {
+            $orderId = $item['id'];
+        }
+
+        if (isset($_COOKIE['username'])) {
+            $username = $_COOKIE['username'];
+            $sql = "SELECT * FROM user WHERE username = '$username'";
+            $user = executeResult($sql); // in ra 1 dòng 
+            foreach ($user as $item) {
+                $userId = $item['id_user'];
+            }
+        }
+
+        // Lấy cartList ra từ database
+        $idList = [];
+        foreach ($cart as $item) {
+            $idList[] = $item['id'];
+        }
+        if (count($idList) > 0) {
+            $idList = implode(',', $idList);
+            $sql = "SELECT * FROM product where id in ($idList)";
+            $cartList = executeResult($sql);
+        } else {
+            $cartList = [];
+        }
+        
+         $status = 'Đang chuẩn bị';
+
+        $total = 0;
+        foreach ($cartList as $item) {
+           $num = 0;
+            foreach ($cart as $value) {
+                if ($value['id'] == $item['id']) {
+                    $num = $value['num'];
+                    break;
+                }
+            }
+            $total += $num * $item['price'];
+            $sql = "INSERT into order_details(order_id, product_id,id_user, num, price, status, typepay, paymentStatus) values ('$orderId', " . $item['id'] . ",'$userId','$num', " . $item['price'] . ",'Đang chuẩn bị' ,'banking', 1)";
+            execute($sql);
+        }
+        setcookie('cart', '[]', time() - 1000, '/');
+
+        $embeddata = json_encode(['order_id' => $orderId]);
+        $items = '[]';
+        $transID = rand(0, 1000000);
+
+        // Đặt khai báo $config lên trước khi dùng
+        $config = [
+            "app_id" => 554,
+            "key1" => "8NdU5pG5R2spGHGhyO99HN1OhD8IQJBn",
+            "key2" => "uUfsWgfLkRLzq6W2uNXTCxrfxs51auny",
+            "endpoint" => "https://sb-openapi.zalopay.vn/v2/create"
+        ];
+
+        $order = [
+            "app_id" => $config["app_id"],
+            "app_time" => round(microtime(true) * 1000),
+            "app_trans_id" => date("ymd") . "_" . $transID,
+            "app_user" => "user123",
+            "item" => $items,
+            "embed_data" => $embeddata,
+            "amount" => $total,
+            "description" => "Lazada - Payment for the order #$transID",
+            "bank_code" => "zalopayapp",
+            "redirect_url" => "http://localhost/BTL-Web/api/payment-success.php"
+        ];
+
         // PHP Version 7.3.3
 
         $config = [
-            "app_id" => 554 ,
+            "app_id" => 554,
             "key1" => "8NdU5pG5R2spGHGhyO99HN1OhD8IQJBn",
             "key2" => "uUfsWgfLkRLzq6W2uNXTCxrfxs51auny",
             "endpoint" => "https://sb-openapi.zalopay.vn/v2/create"
@@ -92,11 +163,11 @@ if (!empty($_POST)) {
         $order = [
             "app_id" => $config["app_id"],
             "app_time" => round(microtime(true) * 1000), // miliseconds
-            "app_trans_id" => date("ymd") . "_" . $transID, // translation missing: vi.docs.shared.sample_code.comments.app_trans_id
+            "app_trans_id" => date("ymd") . "_" . $transID,
             "app_user" => "user123",
             "item" => $items,
             "embed_data" => $embeddata,
-            "amount" => $total ,
+            "amount" => $total,
             "description" => "Lazada - Payment for the order #$transID",
             "bank_code" => "zalopayapp"
         ];
@@ -116,7 +187,10 @@ if (!empty($_POST)) {
 
         $resp = file_get_contents($config["endpoint"], false, $context);
         $result = json_decode($resp, true);
-        header("Location: " . $result["order_url"]);
+        echo '<script>
+            window.open("' . $result["order_url"] . '", "_blank");
+            window.location = "../index.php"; 
+        </script>';
         exit(); // kết thúc script để tránh chạy tiếp
 
         // foreach ($result as $key => $value) {
